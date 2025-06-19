@@ -1,1 +1,3 @@
-# Assignment 2 in Mobile Dev
+# Expo React Native Playground
+
+This repository contains a base template of Expo that has NativeWind included in it.
