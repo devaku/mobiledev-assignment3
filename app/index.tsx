@@ -32,8 +32,19 @@ export default function App() {
 			return;
 		}
 
-		console.log('Current Month: ', givenMonth);
-		console.log('Current Date: ', givenDate);
+		try {
+			const response = await fetch(`https://numbersapi.p.rapidapi.com/${givenMonth}/${givenDate}/date`, {
+				method: "GET",
+				headers: {
+					'x-rapidapi-key': '47d37a0261mshe7167cf158cddd3p1afc43jsn1754f29ec4cd',
+					'x-rapidapi-host': 'numbersapi.p.rapidapi.com'
+				},
+			});
+			const data = await response.text();
+			console.log(data);
+		} catch (error) {
+			console.error("Error:", error);
+		}
 	}
 
 	return (
