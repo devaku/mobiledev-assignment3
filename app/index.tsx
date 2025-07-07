@@ -39,14 +39,12 @@ export default function App() {
 	return (
 		<SafeAreaProvider>
 			<SafeAreaView>
-				<View className="flex flex-col items-center justify-center">
-					<Text className="bg-sky-800 text-white w-full p-1">
-						OUTPUT FROM API HERE
-					</Text>
+				<View className="flex flex-col items-center justify-center bg-slate-200  mt-[25%] p-5 mx-5 rounded-lg">
+
 					<View className="mt-5 w-full">
 						{/* MONTH */}
 						<View className="flex flex-row items-center justify-around w-full">
-							<Text className="w-12">Month:</Text>
+							<Text className="w-12">Month</Text>
 							<Dropdown
 								style={[styles.dropdown]}
 								placeholderStyle={styles.placeholderStyle}
@@ -81,15 +79,22 @@ export default function App() {
 							/>
 						</View>
 					</View>
+					<Text className="flex flex-col items-center justify-center mt-5 p-1">
+						OUTPUT FROM API HERE
+					</Text>
 				</View>
 			</SafeAreaView>
 		</SafeAreaProvider>
 	);
 }
 
-const styles = StyleSheet.create({
+const styles = StyleSheet.create({ 
 	dropdown: {
 		height: 50,
+		width: 140,
+		borderRadius: 8,
+		padding: 5,
+		backgroundColor: 'white',
 	},
 
 	placeholderStyle: {
