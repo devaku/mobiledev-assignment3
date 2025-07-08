@@ -25,10 +25,12 @@ export default function App() {
 	const [isFocus, setIsFocus] = useState(false);
 	const [month, setMonth] = useState('');
 	const [date, setDate] = useState('1');
+	const [fact, setFact] = useState('None');
 
 	async function fetchDateFact(givenMonth: String, givenDate: String) {
 		// If either is blank or null
 		if (!givenMonth || !givenDate) {
+			setFact('None')
 			return;
 		}
 
@@ -41,6 +43,7 @@ export default function App() {
 				},
 			});
 			const data = await response.text();
+			setFact(data)
 			console.log(data);
 		} catch (error) {
 			console.error("Error:", error);
@@ -77,11 +80,11 @@ export default function App() {
 							/>
 						</View>
 						{/* DAY */}
-						<View className="flex flex-row items-center justify-around w-full">
+						<View className="flex flex-row items-center justify-around w-full mt-10">
 							<Text className="w-12">Day:</Text>
 
 							<TextInput
-								className="w-[120px]"
+								className="w-[120px] bg-white p-2 rounded"
 								onChangeText={(item) => {
 									setDate(item);
 									fetchDateFact(month, item);
@@ -90,8 +93,9 @@ export default function App() {
 							/>
 						</View>
 					</View>
-					<Text className="flex flex-col items-center justify-center mt-5 p-1">
-						OUTPUT FROM API HERE
+					<Text className="w-full text-left mt-5 font-bold text-xl">Fact:</Text>
+					<Text className="flex flex-col items-center justify-center p-1">
+						{fact}
 					</Text>
 				</View>
 			</SafeAreaView>
